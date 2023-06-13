@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postman-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postman
+  template:
+    metadata:
+      labels:
+        app: postman
+    spec:
+      containers:
+        - name: postman
+          image: postman/newman
+          ports:
+            - containerPort: 3000
